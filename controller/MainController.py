@@ -1,6 +1,7 @@
 from view.MainView import MainView
 from view.PlayerView import player_information
-from model.joueurs import joueurs
+from tin
+
 
 class MainController:
 
@@ -24,12 +25,6 @@ class MainController:
     def joueurs(self):
         while 1:
             player_information()
-            serialized_player_information = {player_information}
 
     def tournoi(self):
         print("vous créer un tournoi")
-
-
-
-
-
