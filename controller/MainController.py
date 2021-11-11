@@ -1,7 +1,9 @@
 from view.MainView import MainView
 from view.PlayerView import player_information
-from tin
+from model import joueurs
+from tinydb import TinyDB, Query, where
 
+db = TinyDB('db.json')
 
 class MainController:
 
@@ -25,6 +27,8 @@ class MainController:
     def joueurs(self):
         while 1:
             player_information()
+            player = player_information()
+            db.insert(player)
 
     def tournoi(self):
         print("vous créer un tournoi")
