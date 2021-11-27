@@ -1,14 +1,14 @@
 from view.MainView import MainView
 from view.PlayerView import player_information
-from model import joueurs
+from model.joueurs import player
 from tinydb import TinyDB, Query, where
 
 db = TinyDB('db.json')
 
+
 class MainController:
 
     main_view = MainView
-    player = player_information
 
     def start(self):
         while 1:
@@ -20,15 +20,16 @@ class MainController:
             elif option == "3":
                 pass
             elif option == "4":
-                    break
+                break
             else:
                 self.main_view.display_error("commande inconnue")
 
     def joueurs(self):
         while 1:
-            player_information()
-            player = player_information()
-            db.insert(player)
+            player_information().way()
+
+
+
 
     def tournoi(self):
         print("vous créer un tournoi")
