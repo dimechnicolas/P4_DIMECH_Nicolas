@@ -1,6 +1,7 @@
 from view.MainView import MainView
 from view.PlayerView import player_information
-from model.joueurs import player
+from model.joueurs import Player
+from controller.Check import Check
 from tinydb import TinyDB, Query, where
 
 db = TinyDB('db.json')
@@ -26,7 +27,9 @@ class MainController:
 
     def joueurs(self):
         while 1:
-            player_information().way()
+            player_data = player_information().way()
+            player = Player(player_data['nom'], player_data['prenom'], player_data['date de naissance'], player_data['sexe'], player_data['classement'])
+            player.sauve()
 
 
 
