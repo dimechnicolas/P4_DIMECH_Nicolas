@@ -1,4 +1,7 @@
-class player:
+from tinydb import TinyDB, Query, where
+db = TinyDB('player.json')
+
+class Player:
 
     def __init__(self, nom, prenom, DateNaissance, sexe, classement):
         self.id = 0
