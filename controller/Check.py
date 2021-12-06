@@ -1,11 +1,27 @@
 class Check:
-    def check_nom(text):
-        reponse = ''
+
+    @staticmethod
+    def check_str(text):
         while True:
             reponse = input(text)
             if reponse != "False":
                 break
-                print("vous avez rentrez une movaise valeure, merci de recommancez")
+            print("vous avez rentrez une movaise valeure, merci de recommancez")
+        return reponse
+
+
+
+
+
+"""class Check:
+
+    @staticmethod
+    def check_nom(text):
+        while True:
+            reponse = input(text)
+            if reponse != "False":
+                break
+            print("vous avez rentrez une movaise valeure, merci de recommancez")
         return reponse
 
     def check_prenom(text):
@@ -26,10 +42,10 @@ class Check:
                 print("vous avez rentrez une movaise valeure, merci de recommancez")
         return reponse
 
-    def check_sexe(sexe):
+    def check_sexe(text):
         reponse = ''
         while True:
-            reponse = input(sexe)
+            reponse = input(text)
             if reponse == "M" or reponse == "F":
                 break
             else:
@@ -43,4 +59,4 @@ class Check:
             if reponse != "False":
                 break
                 print("vous avez rentrez une movaise valeure, merci de recommancez")
-        return reponse
+        return reponse"""
