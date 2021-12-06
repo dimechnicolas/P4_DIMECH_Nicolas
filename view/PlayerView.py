@@ -1,11 +1,23 @@
-def player_information():
-    nom = input("nom")
-    prenom = input("prénom")
-    DateNaissance = input("date de naissance")
-    sexe = input("sexe")
-    classement = input("classement")
+from controller.Check import Check
 
-    player = nom, prenom, DateNaissance,sexe, classement
-    #serialized = {'nom': player.nom, 'prenom': player.prenom, 'date de naissance': player.DateNaissance, 'sexe': player.sexe, 'classement': player.classement}
-    print(player)
+"""vue pour la récupération des infos d'un jouer
+    view for retrieving player info """
+
+class player_information:
+
+
+    @staticmethod
+    def way():
+        #nom =input("nom:")
+        nom = Check.check_str('nom:')
+        #prenom = input("prenom:")
+        check_prenom = Check.check_str('prenom:')
+        # DateDeNaissance = input("date de naissance:")
+        check_DateDeNaissance = Check.check_str('Date De Naissance:')
+        sexe = input("sexe:")
+        check_sexe = Check.check_sexe(sexe)
+        classement = input("classement:")
+        check_classement = Check.check_classement(classement)
+        #print(check_nom, check_prenom, check_DateDeNaissance, check_sexe, check_classement)
+        return {'nom': nom, 'prenom': prenom, 'date de naissance': DateDeNaissance, 'sexe': sexe, 'classement': classement}
 
