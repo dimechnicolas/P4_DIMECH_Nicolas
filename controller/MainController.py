@@ -1,10 +1,7 @@
 from view.MainView import MainView
 from view.PlayerView import player_information
 from model.joueurs import Player
-from controller.Check import Check
-from tinydb import TinyDB, Query, where
-
-db = TinyDB('db.json')
+from view.TournamentView import tournament_information
 
 
 class MainController:
@@ -31,8 +28,7 @@ class MainController:
             player = Player(player_data['nom'], player_data['prenom'], player_data['date de naissance'], player_data['sexe'], player_data['classement'])
             player.sauve()
 
-
-
-
     def tournoi(self):
-        print("vous créer un tournoi")
+        tournoi_data = tournament_information().way()
+        tournament = tournoi_data(tournoi_data['nom'], tournoi_data['lieu'], tournoi_data['date'], tournoi_data['joueurs'])
+        tournament.save()
