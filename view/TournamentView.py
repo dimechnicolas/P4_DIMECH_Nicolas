@@ -7,9 +7,7 @@ class tournament_information:
 
     @staticmethod
     def way():
-        nom = Check.check_str('nom:')
-        lieu = Check.check_str('lieu:')
-        date = Check.check_str('Date:')
-        joueurs = Check.check_str('joueurs:')
-        return {'nom': nom, 'lieu': lieu, 'date': date, 'joueurs': joueurs}
-
+        name = Check.check_str('nom:') #récup et controle le nom
+        place = Check.check_str('lieu:') # récup et controle le lieu
+        dated = Check.check_str('Date:') # récup et controle la date
+        return {'name': name, 'place': place, 'dated': dated} # retourne un dico avec les dif info entrée
