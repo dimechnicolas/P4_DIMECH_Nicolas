@@ -2,6 +2,7 @@ from view.MainView import MainView
 from view.PlayerView import player_information
 from model.joueurs import Player
 from view.TournamentView import tournament_information
+from model.tournoi import Tournoi
 
 
 class MainController:
@@ -23,12 +24,11 @@ class MainController:
                 self.main_view.display_error("commande inconnue")
 
     def joueurs(self):
-        while 1:
-            player_data = player_information().way()
-            player = Player(player_data['nom'], player_data['prenom'], player_data['date de naissance'], player_data['sexe'], player_data['classement'])
-            player.sauve()
+        player_data = player_information().way()
+        player = Player(player_data['nom'], player_data['prenom'], player_data['date de naissance'], player_data['sexe'], player_data['classement'])
+        player.sauve()
 
     def tournoi(self):
         tournoi_data = tournament_information().way()
-        tournament = tournoi_data(tournoi_data['nom'], tournoi_data['lieu'], tournoi_data['date'], tournoi_data['joueurs'])
+        tournament = Tournoi(tournoi_data['name'], tournoi_data['place'], tournoi_data['dated'])
         tournament.save()
