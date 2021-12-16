@@ -1,8 +1,8 @@
 from view.MainView import MainView
 from view.PlayerView import player_information
-from model.joueurs import Player
+from model.player import Player
 from view.TournamentView import tournament_information
-from model.tournoi import Tournoi
+from model.tournament import Tournament
 
 
 class MainController:
@@ -25,10 +25,10 @@ class MainController:
 
     def joueurs(self):
         player_data = player_information().way()
-        player = Player(player_data['nom'], player_data['prenom'], player_data['date de naissance'], player_data['sexe'], player_data['classement'])
+        player = Player(player_data['first_name'], player_data['name'], player_data['birthday'], player_data['sex'], player_data['ranking'])
         player.sauve()
 
     def tournoi(self):
-        tournoi_data = tournament_information().way()
-        tournament = Tournoi(tournoi_data['name'], tournoi_data['place'], tournoi_data['dated'])
+        tournament_data = tournament_information().way()
+        tournament = Tournament(tournament_data['name'], tournament_data['place'], tournament_data['dated'])
         tournament.save()
