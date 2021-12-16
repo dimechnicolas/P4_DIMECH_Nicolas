@@ -5,19 +5,12 @@ from controller.Check import Check
 
 class player_information:
 
-
     @staticmethod
     def way():
-        #nom =input("nom:")
-        nom = Check.check_str('nom:')
-        #prenom = input("prenom:")
-        check_prenom = Check.check_str('prenom:')
-        # DateDeNaissance = input("date de naissance:")
-        check_DateDeNaissance = Check.check_str('Date De Naissance:')
-        sexe = input("sexe:")
-        check_sexe = Check.check_sexe(sexe)
-        classement = input("classement:")
-        check_classement = Check.check_classement(classement)
-        #print(check_nom, check_prenom, check_DateDeNaissance, check_sexe, check_classement)
-        return {'nom': nom, 'prenom': prenom, 'date de naissance': DateDeNaissance, 'sexe': sexe, 'classement': classement}
+        first_name = Check.check_str('nom:')
+        name = Check.check_str('prenom:')
+        birthday = Check.check_str('Date De Naissance:')
+        sex = Check.check_sexe('sexe:')
+        ranking = Check.check_str('classement:')
+        return {'first_name': first_name, 'name': name, 'birthday': birthday, 'sex': sex, 'ranking': ranking}
 
