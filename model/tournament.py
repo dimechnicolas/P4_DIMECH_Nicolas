@@ -2,7 +2,7 @@ from tinydb import TinyDB, Query, where
 db = TinyDB('tournoi.json')
 
 
-class Tournoi:
+class Tournament:
     def __init__(self, name, place, dated):
         self.name = name # nom du tournoi
         self.place = place # lieu du tournoi
