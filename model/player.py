@@ -30,5 +30,5 @@ class Player:
             'ranking': self.ranking
         }
 
-    def sauve(self):
+    def save(self):
         db.insert(self.serialize())
