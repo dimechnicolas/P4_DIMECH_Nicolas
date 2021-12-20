@@ -4,8 +4,11 @@ class MainView:
         print("chess program")
         print("1: joueur")
         print("2: tournoi")
-        print("3: option 3")
-        print("4: exit")
+        print("3: tours")
+        print("4: generer les pairs")
+        print("5: mise à jours des classements")
+        print("6: rapports")
+        print("7: exite")
         option = input("Votre choix ?")
         return option
 

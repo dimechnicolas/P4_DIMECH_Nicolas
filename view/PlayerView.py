@@ -3,10 +3,11 @@ from controller.Check import Check
 """vue pour la récupération des infos d'un jouer
     view for retrieving player info """
 
-class player_information:
+
+class PlayerView:
 
     @staticmethod
-    def way():
+    def get_player_data():
         first_name = Check.check_str('nom:')
         name = Check.check_str('prenom:')
         birthday = Check.check_str('Date De Naissance:')
