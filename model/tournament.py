@@ -25,5 +25,13 @@ class Tournament:
             'player': self.player
         }
 
+    def deserialize(self, t):
+        self.name = t['name']
+        self.place = t['place']
+        self.dated = t['dated']
+        self.round = t['round']
+        self.tours = t['tours']
+        self.player = t['player']
+
     def save(self): # fonction de sauvegarde
         db.insert(self.serialize()) # sauvegarde dans la db
