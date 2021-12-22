@@ -30,5 +30,13 @@ class Player:
             'ranking': self.ranking
         }
 
+    def deserialize (self, p):
+        self.id = p['id']
+        self.name = p['first_name']
+        self.name = p['name']
+        self.birthday = p['birthday']
+        self.sex = p['sex']
+        self.ranking = p['ranking']
+
     def save(self):
         db.insert(self.serialize())
