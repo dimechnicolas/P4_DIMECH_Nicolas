@@ -9,7 +9,8 @@ class Check:
     def check_str(text):
         while True:
             reponse = input(text)
-            if reponse != re.match('[a-z A-Z]{3}+'):
+            reg_check_text = re.search('[[:alpha:]]', reponse)
+            if reg_check_text != 'True':
                 break
             print("vous avez rentrez une movaise valeure, merci de recommancez")
         return reponse
@@ -26,6 +27,7 @@ class Check:
     def check_int(int):
         while True:
             reponse = input(int)
+            reg_check_int = re.search('\d', reponse)
             if reponse != "True":
                 break
             print("merci de ne rentrer que des chiffres sans virgules")
