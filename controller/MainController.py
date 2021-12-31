@@ -1,11 +1,12 @@
 from view.MainView import MainView
 from view.PlayerView import PlayerView
-from model.player import Player
+from model.Player import Player
 from view.TournamentView import tournament_information
 from model.tournament import Tournament
+from model.Round import Round
 
 """conrtoleur menue
-    Controller manu"""
+    Controller menu"""
 
 
 class MainController:
@@ -20,7 +21,7 @@ class MainController:
             elif option == "2":
                 self.create_tournament()
             elif option == "3":
-                print("vous avez selectionné tours")
+                self.create_round()
             elif option == "4":
                 print("vous générez des pairs")
             elif option == "5":
@@ -43,3 +44,7 @@ class MainController:
         tournament_data = tournament_information().way()
         tournament = Tournament(tournament_data['name'], tournament_data['place'], tournament_data['dated'])
         tournament.save()
+
+    @staticmethod
+    def create_round():
+        pass
