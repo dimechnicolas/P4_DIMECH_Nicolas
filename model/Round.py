@@ -18,13 +18,15 @@ class Round:
         return {
         'name': self.name,
         'start_time': self.start_time,
-        'end_time': self.end_time
+        'end_time': self.end_time,
+        'matches': self.matches
         }
 
     def deserialize(self, r):
         self.name = r['name']
         self.start_time = r['start_time']
         self.end_time = r['end_time']
+        self.matches = r['matches']
         return self
 
         
