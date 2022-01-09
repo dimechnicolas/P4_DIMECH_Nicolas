@@ -3,7 +3,6 @@ from view.PlayerView import PlayerView
 from model.Player import Player
 from view.TournamentView import tournament_information
 from model.tournament import Tournament
-from model.Round import Round
 
 """conrtoleur menue
     Controller menu"""
@@ -44,7 +43,3 @@ class MainController:
         tournament_data = tournament_information().way()
         tournament = Tournament(tournament_data['name'], tournament_data['place'], tournament_data['dated'])
         tournament.save()
-
-    @staticmethod
-    def create_round():
-        pass
