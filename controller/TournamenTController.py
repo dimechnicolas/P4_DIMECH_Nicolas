@@ -1,12 +1,12 @@
-from view.TournamentMenuView import tournamentMenu
+from view.TournamentMenuView import tournamentMenuView
 
-class TournamentMenu:
+class TournamentMenuController:
 
-    tournament_menu = tournamentMenu
+    tournament_menu = tournamentMenuView
 
-    def tournament_menu(self):
+    def Choise_controll(self):
         while 1:
-            option = self.tournament_menu.tournamentMenu()
+            option = self.tournament_menu.view_menu(), #faire renvoi à TournamentMenuView
             if option == "1":
                 print("voius créez un tour")
             elif option == "2":

@@ -3,7 +3,7 @@ from view.PlayerView import PlayerView
 from model.Player import Player
 from view.TournamentView import tournament_information
 from model.tournament import Tournament
-from controller.TournamenTController import TournamentMenu
+from controller.TournamenTController import TournamentMenuController
 
 """conrtoleur menue
     Controller menu"""
@@ -47,4 +47,4 @@ class MainController:
 
     @staticmethod
     def tournament():
-        tournament_menu= TournamentMenu().tournament_menu()
+        tournament_menu= TournamentMenuController().Choise_controll()
