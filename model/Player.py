@@ -3,7 +3,7 @@ db = TinyDB('player.json')
 
 class Player:
 
-    def __init__(self, first_name, name, birthday, sex, ranking):
+    def __init__(self, first_name=None, name=None, birthday=None, sex=None, ranking=None):
         self.id = 0
         self.first_name = first_name
         self.name = name
@@ -11,14 +11,6 @@ class Player:
         self.sex = sex
         self.ranking = ranking
         self.matchs = []
-
-    def show(self):
-        print("id" + str(self.id))
-        print("first_name:" + self.first_name)
-        print("name:" + self.name)
-        print("birthday:" + self.birthday)
-        print("sex:" + self.sex)
-        print("ranking:" + self.ranking)
 
     def serialize(self):
         return {
@@ -37,6 +29,15 @@ class Player:
         self.birthday = p['birthday']
         self.sex = p['sex']
         self.ranking = p['ranking']
+        return self
 
     def save(self):
         db.insert(self.serialize())
+
+    @staticmethod
+    def get_all():
+        players = []
+        for p in db.all():
+            players.append(Player().deserialize(p))
+        return players
+
