@@ -9,7 +9,9 @@ class Check:
     def check_str(text):
         while True:
             response = input(text)
-            match = re.search('^[[:alpha:] -]{3,}$', response)# verification des lettres au minima 3
+            match = re.search('^[a-zA-Z 0-9-]{3,}$', response)# verification des lettres et chifffre au minima 3
+            print(response)
+            print(match)
             if match:
                 return response
             print("vous avez rentrez une movaise valeure, merci de recommancez")
@@ -32,4 +34,3 @@ class Check:
             if match:
                 return response
             print("merci de ne rentrer que des chiffres sans virgules")
-
