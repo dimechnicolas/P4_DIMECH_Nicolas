@@ -1,3 +1,4 @@
+import array
 import re
 
 """fichier qui controle les entier et les chaines de caractères 
@@ -34,3 +35,11 @@ class Check:
             if match:
                 return response
             print("merci de ne rentrer que des chiffres sans virgules")
+
+    @staticmethod
+    def check_int_in_array(text, array):
+        while True:
+            response = int(input(text))
+            if response in array:
+                return response
+            print("resultat inconnu")

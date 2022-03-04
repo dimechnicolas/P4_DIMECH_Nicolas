@@ -1,5 +1,5 @@
 from view.TournamentMenuView import TournamentMenuView
-from controller.MainController import MainController
+import controller.MainController
 from model.Round import Round
 
 
@@ -9,7 +9,6 @@ class TournamentMenuController:
 
     def menu(self):
         while 1:
-            selct_playeurs = MainController.create_tournament()
             option = TournamentMenuView().view_menu() #renvoi à TournamentMenuView
             if option == "1":
                 self.start_round()

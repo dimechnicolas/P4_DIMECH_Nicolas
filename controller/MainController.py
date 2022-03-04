@@ -1,9 +1,9 @@
 from view.MainView import MainView
 from view.PlayerView import PlayerView
 from model.Player import Player
-from view.TournamentView import tournament_information
+from view.TournamentView import TournamentView
 from model.Tournament import Tournament
-from controller.TournamentMenuController import TournamentMenuController
+from controller.TournamentMenuController import TournamentMenuController  
 
 """conrtoleur menue
     Controller menu"""
@@ -14,7 +14,7 @@ class MainController:
     main_view = MainView
 
     def start(self):
-        while 1:
+        while True:
             option = self.main_view.display_menu()
             if option == "1":
                 self.create_player()
@@ -41,14 +41,14 @@ class MainController:
 
     @staticmethod
     def create_tournament():
-        tournament_data = tournament_information().way()
+        tournament_data = TournamentView().get_tournament_data()
         tournament = Tournament(tournament_data['name'], tournament_data['place'], tournament_data['dated'], tournament_data['description'], tournament_data['type_tournament'])
         Player.get_all() # ajout des joueurs, afficher la liste des jouteurs et en selectionner 8
         tournament.save()
         TournamentMenuController(tournament).menu()
 
     @staticmethod
-    def load_tournament():
-        #afficher la liste des tournoi et en selectionner 1
-        #TournamentMenuController().Choise_controll()
-        pass
+    def load_tournament(tournaments):
+        TournamentView.tournament_select(tournaments)
+        Tournament.get_all()#afficher la liste des tournoi et en selectionner 1
+        TournamentMenuController().Choise_controll()
