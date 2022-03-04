@@ -18,11 +18,20 @@ class TournamentView:
 
     def players_select(self, players):
         selected_players = []
-        for kay, players in enumerate(players):
-            print(f'{kay}:{players}')
-        user_input = self.check.check_str("choix du joueur:", range(0, len(players)))
-        selected_players.append(players[user_input])
-        players.remove(players[user_input])
+        while True:
+            for kay, players in enumerate(players):
+                print(f'{kay}:{players}')
+            user_input = self.check.match_db_players("choix du joueur:", range(0, len(players)))
+            selected_players.append(players[user_input])
+            players.remove(players[user_input])
 
-        if len(selected_players) == 8:
-            break
+            if len(selected_players) == 8:
+                break
+        return selected_players
+
+    @staticmethod
+    def tournament_select(tournaments):
+        for kay, tournament in enumerate(tournaments):
+            print(f"{kay}:{tournament}")
+        user_input = Check.check_int_in_array('quel tournoi voulez-vous selectionner? ', range(0, len(tournaments)))
+        return tournaments[user_input]
