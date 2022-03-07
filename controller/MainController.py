@@ -48,7 +48,6 @@ class MainController:
         TournamentMenuController(tournament).menu()
 
     @staticmethod
-    def load_tournament(tournaments):
-        TournamentView.tournament_select(tournaments)
-        Tournament.get_all()#afficher la liste des tournoi et en selectionner 1
-        TournamentMenuController().Choise_controll()
+    def load_tournament():
+        tournament = TournamentView.tournament_select(Tournament.get_all())
+        TournamentMenuController(tournament).menu()
