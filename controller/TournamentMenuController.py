@@ -21,7 +21,10 @@ class TournamentMenuController:
 
     def start_round(self):
         new_round = Round()
+        #faire les paires (pairing)
         self.tournament.rounds_list.append(new_round)
+        self.tournament.update()
 
     def stop_round(self):
         pass # roud à tirer dans la liste Tournament
+
