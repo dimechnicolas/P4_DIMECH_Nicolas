@@ -11,7 +11,7 @@ class Player:
         self.ranking = ranking
         self.score = 0
         self.matchs = []
-        self.table = TinyDB('../player.json').table('Player')
+        self.table = TinyDB('player.json').table('Player')
 
     def __str__(self):
         return f'{self.first_name} {self.name}'
