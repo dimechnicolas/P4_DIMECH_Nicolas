@@ -3,6 +3,7 @@ import controller.MainController
 from model.Round import Round
 
 
+
 class TournamentMenuController:
     def __init__(self, tournament):
         self.tournament = tournament
@@ -19,12 +20,23 @@ class TournamentMenuController:
             else:
                 TournamentMenuView().display_error("commande inconnue")
 
+
     def start_round(self):
-        new_round = Round()
-        #faire les paires (pairing)
-        self.tournament.rounds_list.append(new_round)
-        self.tournament.update()
+
+        if len(self.tournament.rounds_list) != 0 and self.tournament.rounds_list[-1].end_time == None:# l'accesseur avec une valeure négative permet de compter en remontant à partir de la fin de la liste
+            print('attention: un Round est en cours')
+        elif False: # tournament == 4 : tournoi terminé, si <4 tournoi non fini!
+            pass
+        else:
+            new_round = Round()  # instance de la class Round
+            #condition verifiant si Tournament.round_list est vide ou à déja un tours.
+            if not self.tournament.rounds_list:
+                new_round.first_pairing(self.tournament.player)
+            else:
+                new_round.other_pairing(self.tournament.player, self.tournament.rounds_list)
+            self.tournament.rounds_list.append(new_round)
+            self.tournament.update()
 
     def stop_round(self):
-        pass # roud à tirer dans la liste Tournament
+        self.stoping = Round.stop_round(self)
 
