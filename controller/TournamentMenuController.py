@@ -25,8 +25,8 @@ class TournamentMenuController:
 
         if len(self.tournament.rounds_list) != 0 and self.tournament.rounds_list[-1].end_time == None:# l'accesseur avec une valeure négative permet de compter en remontant à partir de la fin de la liste
             print('attention: un Round est en cours')
-        elif False: # tournament == 4 : tournoi terminé, si <4 tournoi non fini!
-            pass
+        elif len(self.tournament.rounds_list) == 4 and self.tournament.rounds_list[-1].end_time != None: # tournament == 4 : tournoi terminé, si <4 tournoi non fini!
+            print("le tournoi est terminé")
         else:
             new_round = Round()  # instance de la class Round
             #condition verifiant si Tournament.round_list est vide ou à déja un tours.
@@ -38,5 +38,10 @@ class TournamentMenuController:
             self.tournament.update()
 
     def stop_round(self):
-        self.stoping = Round.stop_round(self)
+        if len(self.tournament.rounds_list) == 0 or self.tournament.rounds_list[-1].end_time != None :
+            print("attention aucun round n'est en cours")
+        elif len(self.tournament.rounds_list) == 4 and self.tournament.rounds_list[-1].end_time != None : # tournament == 4 : tournoi terminé, si <4 tournoi non fini!
+            print("le tournoi est terminé")
+        else:
+            pass # stopper le round et afficher les round 1 à 1 pour rentrer les scores
 
